@@ -7,7 +7,7 @@ import "./HomeMainbar.css";
 import { useSelector } from "react-redux";
 const HomeMainbar = () => {
   const location = useLocation();
-  const user = null;
+  const user = 1;
   const navigate = useNavigate();
 
   const questionsList = useSelector((state) => state.questionsReducer);
@@ -76,7 +76,7 @@ const HomeMainbar = () => {
   // ];
 
   const checkAuth = () => {
-    if (user === null) {
+    if (user == null) {
       alert("login or signup to ask a question");
       navigate("/Auth");
     } else {

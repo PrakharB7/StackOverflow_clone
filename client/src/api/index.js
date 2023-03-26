@@ -29,3 +29,18 @@ export const deleteAnswer = (id, answerId, noOfAnswers) =>
 export const getAllUsers = () => API.get("/user/getAllUsers");
 export const updateProfile = (id, updateData) =>
   API.patch(`/user/update/${id}`, updateData);
+
+export const uploadMedia = (formData) => API.post("/Post/media", formData);
+export const postComment = (_id, comment) =>
+  API.patch(`/Post/comment/${_id}`, comment);
+export const postLike = (_id, value) => API.patch(`/Post/like/${_id}`, value);
+export const fetchAllPosts = () => API.get("/Post/fetchAllPosts");
+export const deletePost = (_id) => API.delete(`/Post/delete/${_id}`);
+
+export const addFriend = (_id, name) => API.patch(`/friend/add/${_id}`, name);
+export const acceptRequest = (_id, userDetails) =>
+  API.patch(`/friend/accept/${_id}`, userDetails);
+export const removeRequest = (_id, userId) =>
+  API.patch(`/friend/reject/${_id}`, userId);
+export const removeFriend = (_id, userId) =>
+  API.patch(`/friend/remove/${_id}`, userId);

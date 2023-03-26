@@ -1,9 +1,11 @@
 import express from "express";
-import mongoose, { Mongoose } from "mongoose";
+import mongoose from "mongoose";
 import cors from "cors";
 import userRoutes from "./routes/users.js";
 import questionsRoutes from "./routes/Questions.js";
 import answerRoutes from "./routes/Answers.js";
+import postRoutes from "./routes/Post.js";
+import friendRoutes from "./routes/friend.js";
 import dotenv from "dotenv";
 
 const app = express();
@@ -19,11 +21,13 @@ app.get("/", (req, res) => {
 app.use("/user", userRoutes);
 app.use("/questions", questionsRoutes);
 app.use("/answer", answerRoutes);
+app.use("/Post", postRoutes);
+app.use("/friend", friendRoutes);
 
 const PORT = process.env.PORT || 5000;
 
 const DATABASE_URL = process.env.CONNECTION_URL;
-
+mongoose.set("strictQuery", true);
 mongoose
   .connect(DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() =>
