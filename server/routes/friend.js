@@ -4,7 +4,7 @@ import {
   addFriend,
   rejectRequest,
   removeFriend,
-} from "../Controllers/Friend.js";
+} from "../controllers/Friend.js";
 
 const router = express.Router();
 
